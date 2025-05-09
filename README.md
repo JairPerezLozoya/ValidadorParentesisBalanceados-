@@ -42,4 +42,3 @@ Views/         # Interfaz (Index.cshtml)
 ---
 
 **Contacto:** jair172000@gmail.com
-🔗 **Más detalles:** [Incluye enlace a tu documentación técnica si la tienes]
