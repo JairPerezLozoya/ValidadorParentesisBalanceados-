@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Validador de Paréntesis";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Validate", "Home", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>Ingresa una cadena:</label>
+        <input type="text" name="inputString" class="form-control" required
+               placeholder="Ejemplo: {[()]}" />
+    </div>
+    <button type="submit" class="btn btn-primary">Validar</button>
+}
+
+@if (TempData["Result"] != null)
+{
+    <div class="alert @(TempData["Result"].ToString() == "True" ? "alert-success" : "alert-danger") mt-3">
+        Resultado: <strong>@(TempData["Result"].ToString() == "True" ? "Válido" : "Inválido")</strong>
+    </div>
+}
+
+<h3 class="mt-4">Historial</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Fecha</th>
+            <th>Cadena</th>
+            <th>Resultado</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.History)
+        {
+            <tr>
+                <td>@item.RequestDate.ToString("g")</td>
+                <td>@item.InputString</td>
+                <td>
+                    @if (item.IsValid)
+                    {
+                        <span class="badge bg-success">Válido</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger">Inválido</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
