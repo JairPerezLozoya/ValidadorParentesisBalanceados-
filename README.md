@@ -13,10 +13,14 @@ Aplicación web en ASP.NET MVC que verifica si los símbolos `()`, `[]` y `{}` e
 2. **Abre la solución** en Visual Studio (archivo `.sln`).
 3. **Restaura paquetes NuGet**: Click derecho en la solución → *Restore NuGet Packages*.
 4. **Ejecuta migraciones** (en Package Manager Console):
+5. **En caso de error al compilar la aplicacion correr el siguiente comando: Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r
+   En la siguiente liga se podra encontrar la solucion al error mencionado: https://stackoverflow.com/questions/32780315/could-not-find-a-part-of-the-path-bin-roslyn-csc-exe
+
+
    ```bash
    Update-Database
    ```
-5. **Inicia la aplicación** (F5).
+6. **Inicia la aplicación** (F5).
 
 ## Pruebas Básicas
 | Cadena      | Resultado Esperado |
